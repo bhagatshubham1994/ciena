@@ -16,6 +16,7 @@ export class ReportDetailsComponent implements OnInit {
   menuItems: SelectItem[];
   selectedItem: KeyValue<string, string>
   ref: DynamicDialogRef;
+  tabSelected = 0;
   constructor(
     private apiService: ApiService,
     private confirmationService: ConfirmationService
@@ -49,19 +50,22 @@ export class ReportDetailsComponent implements OnInit {
     switch (event.index) {
       case 0:
         this.reportList = this.originalReports;
+        this.tabSelected = event.index;
         console.log(event.index)
         break;
       case 1:
         this.reportList = this.originalReports.slice().sort((a, b) => a.nodeType > b.nodeType ? -1 : b.nodeType > a.nodeType ? 1 : 0);
-          
+        this.tabSelected = event.index;
         console.log(event.index)
         break;
       case 2:
         this.reportList = this.originalReports.filter(report => report['conditionSeverity'] === 'CRITICAL');
+        this.tabSelected = event.index;
         console.log(event.index, this.reportList)
         break;
       case 3:
         this.reportList = this.originalReports.filter(report => report['conditionSeverity'] === 'MAJOR');
+        this.tabSelected = event.index;
         console.log(event.index, this.reportList)
         break;
     

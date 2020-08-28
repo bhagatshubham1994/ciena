@@ -13,7 +13,7 @@
 </div>
 
 <div class="buttons">
-  <button pButton type="button" label="Submit" class="p-button-secondary"></button>
+  <button pButton type="button" label="Home" class="p-button-secondary"></button>
   <!-- <p-dropdown [options]="menuItems" [(ngModel)]="selectedItem" optionLabel="name"></p-dropdown> -->
   <button pButton type="button" label="Back" class="p-button-secondary"></button>
 </div>
@@ -47,7 +47,7 @@
   
   <ng-template pTemplate="body" let-product> 
       <tr [ngClass]="{critical: product.conditionSeverity === 'CRITICAL', major: product.conditionSeverity === 'MAJOR',
-      minor: product.conditionSeverity === 'MINOR', warning: product.conditionSeverity === 'WARNING'}">
+      minor: product.conditionSeverity === 'MINOR', warning: product.conditionSeverity === 'WARNING', auto: tabSelected > 1}">
           <td>
             <p-tableCheckbox [value]="product"></p-tableCheckbox>
           </td>
