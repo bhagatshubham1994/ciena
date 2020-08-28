@@ -14,8 +14,10 @@
 
 <div class="buttons">
   <button pButton type="button" label="Home" class="p-button-secondary"></button>
-  <!-- <p-dropdown [options]="menuItems" [(ngModel)]="selectedItem" optionLabel="name"></p-dropdown> -->
-  <button pButton type="button" label="Back" class="p-button-secondary"></button>
+  <div>
+    <p-dropdown [options]="menuItems" [(ngModel)]="selectedItem" class="dropdown"></p-dropdown>
+    <button pButton type="button" label="Back" class="p-button-secondary"></button>
+  </div>
 </div>
 
 <div class="title">

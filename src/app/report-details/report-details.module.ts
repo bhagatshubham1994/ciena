@@ -4,8 +4,7 @@ import { ReportDetailsComponent } from './report-details/report-details.componen
 import { ReportDetailsRoutingModule } from './report-details-routing.module';
 
 import { DropdownModule } from 'primeng/dropdown';
-import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
-import {MenuItem, ConfirmationService} from 'primeng/api';  
+import { ConfirmationService} from 'primeng/api';  
 import {ButtonModule} from 'primeng/button';
 import { FormsModule } from '@angular/forms';
 import {TableModule} from 'primeng/table';
@@ -22,9 +21,9 @@ import { TabViewModule } from 'primeng/tabview';
     ButtonModule,
     FormsModule,
     TableModule,
-    TabViewModule,
+    TabViewModule
   ],
-  providers: [DialogService, ConfirmationService, ConfirmDialogModule]
+  providers: [DialogService, ConfirmationService, ConfirmDialogModule, DropdownModule]
 })
 
 export class ReportDetailsModule { }

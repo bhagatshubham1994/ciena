@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CanDeactivateGuardService } from './shared/services/can-deactivate.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { CanDeactivateGuardService } from './shared/services/can-deactivate.guar
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule    
   ],
   providers: [CanDeactivateGuardService],
   bootstrap: [AppComponent]

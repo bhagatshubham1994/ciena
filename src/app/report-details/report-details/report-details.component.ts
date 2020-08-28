@@ -9,25 +9,25 @@ import {DynamicDialogRef} from 'primeng/dynamicdialog';
   templateUrl: './report-details.component.html',
   styleUrls: ['./report-details.component.scss']
 })
+
 export class ReportDetailsComponent implements OnInit {
 
   reportList: any[];
   originalReports: any[];
-  menuItems: SelectItem[];
-  selectedItem: KeyValue<string, string>
   ref: DynamicDialogRef;
   tabSelected = 0;
   constructor(
     private apiService: ApiService,
     private confirmationService: ConfirmationService
-  ) { 
-    this.menuItems = [
-      {label:'Menu', value:null},
-      {label:'Item 1', value:'Item 1'},
-      {label:'Item 2', value:'Item 2'},
-      {label:'Item 3', value:'Item 3'}
-    ];
-  }
+  ) { }
+
+  selectedItem: KeyValue<string, string>
+  menuItems: SelectItem[] = [
+    {label:'Menu', value:null},
+    {label:'Item 1', value:'Item 1'},
+    {label:'Item 2', value:'Item 2'},
+    {label:'Item 3', value:'Item 3'}
+  ];
 
   ngOnInit() {
     this.getReports();
@@ -51,22 +51,18 @@ export class ReportDetailsComponent implements OnInit {
       case 0:
         this.reportList = this.originalReports;
         this.tabSelected = event.index;
-        console.log(event.index)
         break;
       case 1:
         this.reportList = this.originalReports.slice().sort((a, b) => a.nodeType > b.nodeType ? -1 : b.nodeType > a.nodeType ? 1 : 0);
         this.tabSelected = event.index;
-        console.log(event.index)
         break;
       case 2:
         this.reportList = this.originalReports.filter(report => report['conditionSeverity'] === 'CRITICAL');
         this.tabSelected = event.index;
-        console.log(event.index, this.reportList)
         break;
       case 3:
         this.reportList = this.originalReports.filter(report => report['conditionSeverity'] === 'MAJOR');
         this.tabSelected = event.index;
-        console.log(event.index, this.reportList)
         break;
     
       default:
